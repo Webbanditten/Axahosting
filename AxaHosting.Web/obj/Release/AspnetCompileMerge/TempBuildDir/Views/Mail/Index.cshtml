@@ -1,0 +1,71 @@
+﻿@model AxaHosting.Web.ViewModels.MailsViewModel
+
+@{
+    ViewBag.Title = "Mail Accounts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.MessageType != null && Model.MessageText != null)
+{
+    <div class="alert alert-@Model.MessageType">
+        @Model.MessageText
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-mail font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Mail accounts for @Model.WebHotel.Domain</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group btn-group-devided">
+                        <a href="@Url.Action("Add", new { webhotelId = Model.WebHotel.Id})" class="btn btn-transparent green btn-outline btn-circle btn-sm active">Add</a>
+                        
+                    </div>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable table-scrollable-borderless">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr class="uppercase">
+                                <th>Address</th>
+                                <th> Actions </th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var m in Model.Accounts)
+                            {
+                                <tr>
+                                    <td>@m.Address</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", new {webhotelId = @Model.WebHotel.Id, accountId = m.Id})" class="btn btn-outline btn-circle dark btn-sm black">
+                                            <i class="fa fa-pen"></i> Edit Password
+                                        </a>
+                                        <a href="@Url.Action("Delete", new {webhotelId = @Model.WebHotel.Id, accountId = m.Id})" class="btn btn-outline btn-circle dark btn-sm black">
+                                            <i class="fa fa-trash-o"></i> Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    @if (!Model.Accounts.Any())
+                    {
+                        <div class="alert alert-info">
+                            <strong>No accounts available</strong>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

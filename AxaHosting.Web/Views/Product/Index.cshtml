@@ -1,0 +1,104 @@
+﻿@using System.Globalization
+@using AxaHosting.Model
+@model AxaHosting.Web.ViewModels.ProductViewModels
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light portlet-fit ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-blue"></i>
+            <span class="caption-subject font-blue bold uppercase">Products</span>
+        </div>
+        <div class="actions">
+            <div class="btn-group btn-group-devided">
+            <a href="@Url.Action("Index", new {type = 0})" class="btn @{if (ViewBag.Type != null && (ProductType)ViewBag.Type == ProductType.Database){<text> active</text>}} btn-transparent blue btn-outline btn-circle btn-sm">
+                    Database
+                </a>
+                <a href="@Url.Action("Index", new { type = 1})" class="btn @{if (ViewBag.Type != null && (ProductType)ViewBag.Type == ProductType.WebHotel){<text> active</text>}}btn-transparent blue btn-outline btn-circle btn-sm">
+                    Web Hotel
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="pricing-content-1">
+            <div class="row">
+                @foreach (var m in Model.Products)
+                {
+                    <div class="col-md-3">
+                        <div class="price-column-container border-active">
+                            <div class="price-table-head bg-@m.Color">
+                                <h2 class="no-margin">@m.Name</h2>
+                            </div>
+                            <div class="arrow-down border-top-@m.Color"></div>
+                            <div class="price-table-pricing">
+                                <h3>
+                                    @m.MonthlyPricing.ToString(CultureInfo.GetCultureInfo("da-DK"))
+                                </h3>
+                                <p>DKK per month</p>
+                            </div>
+                            <div class="price-table-content">
+                                @if (m.ProductType == ProductType.Database)
+                                {
+                                    <div class="row mobile-padding">
+                                        <div class="col-xs-3 text-right mobile-padding">
+                                            <i class="fa fa-circle"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-left mobile-padding">@m.GetServerTypeName()</div>
+                                    </div>
+                                    <div class="row mobile-padding">
+                                        <div class="col-xs-3 text-right mobile-padding">
+                                            <i class="fa fa-database"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-left mobile-padding">@m.MaxDbGb GB</div>
+                                    </div>
+                                }
+
+                                @if (m.ProductType == ProductType.WebHotel)
+                                {
+                                    <div class="row mobile-padding">
+                                        <div class="col-xs-3 text-right mobile-padding">
+                                            <i class="fa fa-circle"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-left mobile-padding">@m.GetServerTypeName()</div>
+                                    </div>
+                                    <div class="row mobile-padding">
+                                        <div class="col-xs-3 text-right mobile-padding">
+                                            <i class="fa fa-dashboard"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-left mobile-padding">@m.MaxCpu% CPU</div>
+                                    </div>
+                                    <div class="row mobile-padding">
+                                        <div class="col-xs-3 text-right mobile-padding">
+                                            <i class="fa fa-envelope"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-left mobile-padding">@m.MaxMailAccounts Mail Accounts</div>
+                                    </div>
+                                }
+
+
+                            </div>
+                            <div class="arrow-down arrow-grey"></div>
+                            <div class="price-table-footer">
+                                <a href="@Url.Action("Order", "Product", new { id = m.Id})" class="btn grey-salsa btn-outline price-button sbold uppercase">Order</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section styles {
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/Content/assets/pages/css/pricing.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+}
+@section scripts{
+    
+}

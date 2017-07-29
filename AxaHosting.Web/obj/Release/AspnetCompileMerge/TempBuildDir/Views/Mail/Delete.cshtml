@@ -1,0 +1,41 @@
+﻿@model AxaHosting.Web.ViewModels.MailsDeleteAccountViewModel
+
+@{
+    ViewBag.Title = "Delete mail Account for " + Model.WebHotel.Domain;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Delete @Model.Address</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+
+                @using (Html.BeginForm("Delete", "Mail", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(m=>m.WebHotelId)
+                        @Html.HiddenFor(m => m.AccountId)
+
+                        <h4>You are about to delete @Model.Address, are you sure?</h4>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Yes delete account" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

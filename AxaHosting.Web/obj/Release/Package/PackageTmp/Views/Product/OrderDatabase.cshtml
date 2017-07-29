@@ -1,0 +1,73 @@
+﻿@using System.Globalization
+@using AxaHosting.Model
+@model AxaHosting.Model.Product
+
+@{
+    ViewBag.Title = "Ordering of database";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light portlet-fit ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-blue"></i>
+            <span class="caption-subject font-blue bold uppercase">Please confirm order of @Model.Name</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="pricing-content-1">
+            <div class="row">
+                <div class="col-md-9">
+                    
+                    <img src="~/Content/payment.png"/>
+                    @using (Html.BeginForm("ConfirmOrder", "Product", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="ProductId" value="@Model.Id"/>
+                        <input type="submit" class="btn blue btn-outline uppercase btn-block bottom" style="top: 54px;" value="Order">
+                    }
+                    
+                    
+                </div>
+                    <div class="col-md-3">
+                        <div class="price-column-container border-active">
+                            <div class="price-table-head bg-@Model.Color">
+                                <h2 class="no-margin">@Model.Name</h2>
+                            </div>
+                            <div class="arrow-down border-top-@Model.Color"></div>
+                            <div class="price-table-pricing">
+                                <h3>
+                                    @Model.MonthlyPricing.ToString(CultureInfo.GetCultureInfo("da-DK"))
+                                </h3>
+                                <p>DKK per month</p>
+                            </div>
+                            <div class="price-table-content">
+                               
+                                    <div class="row mobile-padding">
+                                        <div class="col-xs-3 text-right mobile-padding">
+                                            <i class="fa fa-circle"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-left mobile-padding">@Model.GetServerTypeName()</div>
+                                    </div>
+                                    <div class="row mobile-padding">
+                                        <div class="col-xs-3 text-right mobile-padding">
+                                            <i class="fa fa-database"></i>
+                                        </div>
+                                        <div class="col-xs-9 text-left mobile-padding">@Model.MaxDbGb GB</div>
+                                    </div>
+                            </div>
+                            
+                           
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/Content/assets/pages/css/pricing.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+}

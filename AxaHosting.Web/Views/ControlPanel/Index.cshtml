@@ -1,0 +1,52 @@
+﻿@model AxaHosting.Web.ViewModels.ControlPanelViewModel
+@{
+    ViewBag.Title = "Control panel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.MessageType != null && Model.MessageText != null)
+{
+    <div class="alert alert-@Model.MessageType">
+        @Model.MessageText
+    </div>
+}
+
+
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="dashboard-stat blue">
+            <div class="visual">
+                <i class="fa fa-cubes"></i>
+            </div>
+            <div class="details">
+                <div class="number"> @Model.Products </div>
+                <div class="desc"> Products </div>
+            </div>
+            <a class="more" href="@Url.Action("MyProducts", "ControlPanel")">
+                View my products
+                <i class="m-icon-swapright m-icon-white"></i>
+            </a>
+        </div>
+    </div>
+
+    @if (Model.Admin)
+    {
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <div class="dashboard-stat blue">
+                <div class="visual">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div class="details">
+                    <div class="number"> </div>
+                    <div class="desc"> Users </div>
+                </div>
+                <a class="more" href="@Url.Action("ViewUsers", "Admin")">
+                    View all users
+                    <i class="m-icon-swapright m-icon-white"></i>
+                </a>
+            </div>
+        </div>
+    }
+
+</div>

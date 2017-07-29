@@ -1,0 +1,58 @@
+﻿@model AxaHosting.Web.ViewModels.DatabaseEditViewModel
+
+@{
+    ViewBag.Title = "Edit Details for " + Model.Database.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="portlet light portlet-fit">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Edit details for  @Model.Database.Name</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+
+                @using (Html.BeginForm("Edit", "Database", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(m => m.DatabaseId)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Password, new {@class = "control-label col-md-2"})
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Password, new {htmlAttributes = new {@class = "form-control"}})
+                                @Html.ValidationMessageFor(model => model.Password)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Edit details" class="btn btn-default"/>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="alert alert-block alert-info fade in">
+            <h4 class="alert-heading">Info!</h4>
+            <p> To cancel your database press below </p>
+            <p>
+                <a class="btn red" href="@Url.Action("Cancel", new {id = Model.Database.Id})">Cancel database</a>
+            </p>
+        </div>
+    </div>
+</div>

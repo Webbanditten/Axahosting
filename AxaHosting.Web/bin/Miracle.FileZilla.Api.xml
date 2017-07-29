@@ -1,0 +1,1671 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Miracle.FileZilla.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Miracle.FileZilla.Api.MemoryStreamExtensions">
+            <summary>
+            Extension methods for memorystream
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.MemoryStreamExtensions.Append(System.IO.MemoryStream,System.Byte[])">
+            <summary>
+            Append data to end of memorystream while retaining position
+            </summary>
+            <param name="memoryStream"></param>
+            <param name="data"></param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ConnOp">
+            <summary>
+            Connection operation (sub command of UserControl.ConnOp)
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ConnOp.Add">
+            <summary>
+            Connection added
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ConnOp.ChangeUser">
+            <summary>
+            User changed in active connection
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ConnOp.Remove">
+            <summary>
+            Connection removed
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ConnOp.TransferInit">
+            <summary>
+            Transfer started or stopped
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ConnOp.TransferOffsets">
+            <summary>
+            File offset for each active file transfer
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ConnectionAdded">
+            <summary>
+            A connection has been added
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionAdded.ConnectionId">
+            <summary>
+            Connection Id
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionAdded.Ip">
+            <summary>
+            Connection IP
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionAdded.Port">
+            <summary>
+            Connection Port
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionAdded.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionAdded.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ConnectionRemoved">
+            <summary>
+            A connection has been removed
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionRemoved.ConnectionId">
+            <summary>
+            Connection Id
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionRemoved.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionRemoved.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ConnectionTransferOffsets">
+            <summary>
+            A connection has been added
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionTransferOffsets.ConnectionId">
+            <summary>
+            Connection Id
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionTransferOffsets.Offset">
+            <summary>
+            Connection IP
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionTransferOffsets.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionTransferOffsets.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ConnectionUserChanged">
+            <summary>
+            A connection has been removed
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionUserChanged.ConnectionId">
+            <summary>
+            Connection Id
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.ConnectionUserChanged.UserName">
+            <summary>
+            User name
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionUserChanged.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ConnectionUserChanged.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Event">
+            <summary>
+            Class used to transfer server settings to/from FileZilla server
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Event.Type">
+            <summary>
+            Type of event
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Event.Time">
+            <summary>
+            Time of the event
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Event.Text">
+            <summary>
+            Text associated with the event
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Event.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Event.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Option">
+            <summary>
+            Class used to transfer a single option to/from FileZilla server
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Option.OptionType">
+            <summary>
+            OptionType of this option (text or numeric)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Option.TextValue">
+            <summary>
+            Text value
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Option.NumericValue">
+            <summary>
+            Text value
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Option.Label">
+            <summary>
+            Label for this option (Read only)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Option.NotRemotelyChangeable">
+            <summary>
+            Is this property changable from non local address (127.0.0.1/::1)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Option.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Option.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Option.GetOptionInfo(System.Int32,System.Int32)">
+            <summary>
+            Get OptionInfo for index of Settings.Options.
+            </summary>
+            <param name="index">Index of Settings.Options item</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <returns></returns>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Option.OptionInfosPreV12">
+            <summary>
+            Helper collection with info about options. Index of this matches index of Settings.Options of protocol versions up to v12.
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Option.OptionInfosPostV11">
+            <summary>
+            Helper collection with info about options. Index of this matches index of Settings.Options of protocol v12 and later.
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Error">
+            <summary>
+            Class used to receive an Error response from FileZilla server
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Error.TextType">
+            <summary>
+            Mystery value that always seems to always have the value 1. AdminSocket.cpp::SendCommand has this as int nTextType. 
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Error.Message">
+            <summary>
+            The error message
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Error.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Error.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.OptionId">
+            <summary>
+            Option Id. Se FileZilla documentation for further information.
+            Note that numeric value is one greater than Settings.Options list
+            Order of elements has been changed as of Protocol V12 (Server version 9.52)
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.OptionInfo">
+            <summary>
+            Description about an option
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.OptionInfo.Label">
+            <summary>
+            Label related to an option
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.OptionInfo.OptionType">
+            <summary>
+            Type of option
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.OptionInfo.NotRemotelyChangeable">
+            <summary>
+            Is this property changable from non local address (127.0.0.1/::1)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.OptionInfo.#ctor(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="label"></param>
+            <param name="type"></param>
+            <param name="notRemotelyChangeable"></param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.OptionType">
+            <summary>
+            Type of option: Text or number
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.OptionType.Text">
+            <summary>
+            This is a text option
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.OptionType.Numeric">
+            <summary>
+            This is a numeric option
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ProtocolVersions">
+            <summary>
+            Protocol version constants.
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ProtocolVersions.Initial">
+            <summary>
+            Initial protocol version supported
+            Server version 0x00094300 - 0x00094700
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ProtocolVersions.User16M">
+            <summary>
+            First version supporting 16M users
+            Server version 0x00094800 - 0x00095000
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ProtocolVersions.TLS">
+            <summary>
+            Protocol changes mostly related to TLS
+            Server version 0x00095100 - 0x00095300
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ProtocolVersions.Sha512">
+            <summary>
+            User password with Sha512 hashing
+            Server version 0x00095400 - ?
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Settings">
+            <summary>
+            Class used to transfer server settings to/from FileZilla server
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Settings.Options">
+            <summary>
+            List of options. Note that Order of elements has been changed as of Protocol V12 (Server version 9.52)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Settings.DownloadSpeedLimitRule">
+            <summary>
+            Download speed limit
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Settings.UploadSpeedLimitRule">
+            <summary>
+            Upload speed limit
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Settings.#ctor">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Settings.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Settings.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Settings.GetOption(Miracle.FileZilla.Api.OptionId)">
+            <summary>
+            Get Option from OPtionId enumeration 
+            </summary>
+            <param name="optionId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Transfer">
+            <summary>
+            Class containing information about a FTP transfer
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Transfer.ConnectionId">
+            <summary>
+            Connection Id. This is the value used to kick/ban connections.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Transfer.TransferMode">
+            <summary>
+            Transfer mode
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Transfer.PhysicalFile">
+            <summary>
+            The physical filename being transfered.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Transfer.LogicalFile">
+            <summary>
+            The logical filename being transfered.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Transfer.CurrentOffset">
+            <summary>
+            The current offset in the file being transfered.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Transfer.TotalSize">
+            <summary>
+            The total size of the file being transfered.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Transfer.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Transfer.DeserializeChildren(System.IO.BinaryReader,System.Int32)">
+            <summary>
+            Let any inheriters serialize additional properties
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Transfer.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.TransferInfo">
+            <summary>
+            Server message informing about amount of data currently being transfered.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.TransferInfo.Type">
+            <summary>
+            Type of event
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.TransferInfo.Count">
+            <summary>
+            Number of bytes transfered
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.TransferInfo.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.TransferInfo.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.TransferMode">
+            <summary>
+            Transfer mode enum specifies what a connection is "doing"
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TransferMode.NotSet">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TransferMode.List">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TransferMode.Receive">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TransferMode.Send">
+            <summary/>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.TransferType">
+            <summary>
+            Direction of a FTP transfer
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TransferType.Receive">
+            <summary>
+            Data is flowing from client to server
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TransferType.Send">
+            <summary>
+            Data is flowing from server to client
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.FileZillaApi">
+            <summary>
+            FileZilla server API
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.#ctor">
+            <summary>
+            Construct FileZillaApi using default IP/port
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.#ctor(System.Net.IPAddress,System.Int32)">
+            <summary>
+            Construct FileZillaApi using specific IP/port
+            </summary>
+            <param name="address">IP address of filezilla server.</param>
+            <param name="port">Admin port as specified when FileZilla server were installed</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.GetServerState">
+            <summary>
+            Get state of FileZilla server
+            </summary>
+            <returns>FileZilla server state</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.SetServerState(Miracle.FileZilla.Api.ServerState)">
+            <summary>
+            Set state of FileZilla server
+            </summary>
+            <param name="serverState">The new state</param>
+            <returns></returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.GetSettings">
+            <summary>
+            Get state of FileZilla server
+            </summary>
+            <returns>FileZilla server state</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.SetSettings(Miracle.FileZilla.Api.Settings)">
+            <summary>
+            Get state of FileZilla server
+            </summary>
+            <returns>True if Success</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.GetConnections">
+            <summary>
+            Get list af current connections to FileZilla server
+            </summary>
+            <returns>List of connections</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.Kick(System.Int32)">
+            <summary>
+            Kick a connection by id.
+            </summary>
+            <param name="connectionId">Connection Id (Use GetConnections to find ConnectionId)</param>
+            <returns>True if successfull, otherwise false</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.BanIp(System.Int32)">
+            <summary>
+            Kick a connection by id, and also ban IP address.
+            </summary>
+            <param name="connectionId">Connection Id (Use GetConnections to find ConnectionId)</param>
+            <returns>True if successfull, otherwise false</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.GetAccountSettings">
+            <summary>
+            Get account settings including all users and groups
+            </summary>
+            <returns>Account settings including all users and groups</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaApi.SetAccountSettings(Miracle.FileZilla.Api.AccountSettings)">
+            <summary>
+            Set account settings. 
+            Note! This replaces ALL users and groups on FileZilla server.
+            </summary>
+            <returns>True if Success</returns>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.FileZillaServerProtocol">
+            <summary>
+            Class used for low level communication with FileZilla admin interface
+            Note! BufferSize must be set to a value large enough to handle incomming data from FileZilla server.
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.FileZillaServerProtocol.SupportedProtocolVersions">
+            <summary>
+            Versions used to develop this API
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.FileZillaServerProtocol.DefaultIp">
+            <summary>
+            Defailt IP
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.FileZillaServerProtocol.DefaultPort">
+            <summary>
+            Default port
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.FileZillaServerProtocol.ServerVersion">
+            <summary>
+            Server version. Populated by Connect method.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.FileZillaServerProtocol.ProtocolVersion">
+            <summary>
+            Protocol version. Populated by Connect method.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.FileZillaServerProtocol.ReceiveMessageRetryCount">
+            <summary>
+            How many times to try to get a message of a particular type before giving up.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.#ctor(System.Net.IPAddress,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="address">IP address of FileZilla server</param>
+            <param name="port">Port number that admin interface is listening to</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.SendCommand(Miracle.FileZilla.Api.MessageType)">
+            <summary>
+            Send command to FileZilla
+            </summary>
+            <param name="messageType">Type of FileZilla message to send</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.SendCommand(Miracle.FileZilla.Api.MessageType,System.Byte)">
+            <summary>
+            Send command with byte data to FileZilla
+            </summary>
+            <param name="messageType">Type of FileZilla message to send</param>
+            <param name="data">Byte data to send with command</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.SendCommand(Miracle.FileZilla.Api.MessageType,System.Byte[])">
+            <summary>
+            Send command with bytes to FileZilla
+            </summary>
+            <param name="messageType">Type of FileZilla message to send</param>
+            <param name="data">Byte data to send with command</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.SendCommand(Miracle.FileZilla.Api.MessageType,System.Action{System.IO.BinaryWriter})">
+            <summary>
+            Send command to FileZilla using an dataAction method
+            </summary>
+            <param name="messageType">Type of FileZilla message to send</param>
+            <param name="dataAction">Method that writes the raw data to the command. Length is automatically generated for the data written by dataAction</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.Receive(Miracle.FileZilla.Api.MessageType)">
+            <summary>
+            Receive FileZilla of specific message type, and expect an empty (length=0) response.
+            </summary>
+            <param name="messageType">Type of FileZilla message to receive</param>
+            <exception cref="T:Miracle.FileZilla.Api.ProtocolException">If length other than 0</exception>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.Receive``1(Miracle.FileZilla.Api.MessageType)">
+            <summary>
+            Receive FileZilla of specific message type, and expect a message body of generic type T.
+            </summary>
+            <param name="messageType">Type of FileZilla message to receive</param>
+            <typeparam name="T">The expected budy type</typeparam>
+            <returns>The body of the message</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.ReceiveMessage(Miracle.FileZilla.Api.MessageType)">
+            <summary>
+            Receive specific message matching MessageType. Note! This filters away all ServerMessages to get to that particular message.
+            </summary>
+            <param name="messageType">The type of message to find</param>
+            <returns>FileZilla message matching MessageType</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.HandleUnmatchedMessage(Miracle.FileZilla.Api.MessageType,Miracle.FileZilla.Api.FileZillaMessage)">
+            <summary>
+            Handle unmatched messages when calling ReceiveMessage method. Override to provide your own implementation (e.g. for logging)
+            </summary>
+            <param name="messageType">messageType sought</param>
+            <param name="message">actual message</param>
+            <returns>True if message can safely be ignored, False if message reception should be terminated.</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.ReceiveMessages">
+            <summary>
+            Get parsed messages from FileZilla admin interface
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaServerProtocol.Connect(System.String)">
+            <summary>
+            Connect to FileZilla admin interface 
+            </summary>
+            <param name="password">FileZilla admin password</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.SocketCommunication">
+            <summary>
+            Base class used for communication with a socket
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.SocketCommunication.DefaultBufferSize">
+            <summary>
+            Initial buffer size.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.#ctor(System.Net.IPAddress,System.Int32)">
+            <summary>
+            Construct admin socket on specific IP and port.
+            </summary>
+            <param name="address">IP address of filezilla server.</param>
+            <param name="port">Admin port as specified when FileZilla server were installed</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.Dispose">
+            <summary>
+            Implementation of IDisposable interface
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.Dispose(System.Boolean)">
+            <summary>
+            Dispose object
+            </summary>
+            <param name="disposing">Dispose unmanaged resources?</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.Connect">
+            <summary>
+            Connect socket to endpoint
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.Disconnect">
+            <summary>
+            Disconnect socket
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SocketCommunication.IsConnected">
+            <summary>
+            Check if socket is connected
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.Send(System.Byte[])">
+            <summary>
+            Send data to socket
+            </summary>
+            <param name="data">Binary data to send</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.Receive">
+            <summary>
+            Receive data from socket.
+            </summary>
+            <exception cref="T:Miracle.FileZilla.Api.ApiException">
+                if BufferSize is too small 
+            </exception>
+            <returns>Data from socket</returns>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SocketCommunication.Log">
+            <summary>
+            Log for debugging purposes
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SocketCommunication.LogData(System.String,System.Byte[])">
+            <summary>
+            Write data to log as hex dump. (Set Log parameter to activate)
+            </summary>
+            <param name="text">Label to write before hex dump</param>
+            <param name="bytes">Data bytes to hex dump</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ApiException">
+            <summary>
+            Exception thrown when a problem is detected in FileZillaApi 
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ApiException.#ctor">
+            <summary>
+            Creates a new Exception.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ApiException.#ctor(System.String)">
+            <summary>
+            Creates a new Exception.
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ApiException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new Exception.
+            </summary>
+            <param name="message"></param>
+            <param name="inner"></param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ApiException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new Exception.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Hex">
+            <summary>
+            Hex dump helper class (Tip: Use Hex.Dump(variable) in QuickWatch) 
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Hex.Dump(System.IO.TextWriter,System.Byte[],System.Int32)">
+            <summary>
+            Hex dump byte array to Text writer
+            </summary>
+            <param name="writer">Text writer to write hex dump to</param>
+            <param name="bytes">Data to dump as hex</param>
+            <param name="maxLength">Optional max bytes to dump</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Hex.Dump(System.Byte[],System.Int32)">
+            <summary>
+            Hex dump byte array and return result as string
+            </summary>
+            <param name="bytes">Data to dump as hex</param>
+            <param name="maxLength">Optional max bytes to dump</param>
+            <returns>String containg hex dump</returns>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.FileZillaMessage">
+            <summary>
+            FileZilla message
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.FileZillaMessage.MessageOrigin">
+            <summary>
+            Origin of message
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.FileZillaMessage.MessageType">
+            <summary>
+            Type of message
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.FileZillaMessage.RawData">
+            <summary>
+            The raw data bytes of FileZilla Message
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.FileZillaMessage.Body">
+            <summary>
+            Serialized version of RawData
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.FileZillaMessage.#ctor(Miracle.FileZilla.Api.MessageOrigin,Miracle.FileZilla.Api.MessageType,System.Byte[],System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="messageOrigin">Origin of message</param>
+            <param name="messageType">Type of message</param>
+            <param name="rawData">The raw data bytes of FileZilla Message</param>
+            <param name="protocolVersion">server protocol version</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.MessageType">
+            <summary>
+            FileZilla message type
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.Authenticate">
+            <summary>
+            Authendicate against FileZilla (done in Connect method)
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.Error">
+            <summary>
+            Error response
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.ServerState">
+            <summary>
+            Get/Set server state
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.UserControl">
+            <summary>
+            User(connection) control
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.Event">
+            <summary>
+            Event Server message
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.Settings">
+            <summary>
+            Get/Set settings
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.AccountSettings">
+            <summary>
+            Get set accountsettings
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.Transfer">
+            <summary>
+            Transfer server message 
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageType.Loopback">
+            <summary>
+            Loopback message to/from server
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.MessageOrigin">
+            <summary>
+            Enumeration that specifies the origin of a FileZilla message
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageOrigin.ClientRequest">
+            <summary>
+            Message is a request from client
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageOrigin.ServerReply">
+            <summary>
+            Message is a server reply to a client request
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.MessageOrigin.ServerMessage">
+            <summary>
+            Message is a status update from server
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.AccountSettings">
+            <summary>
+            Class used to transfer all users and groups to/from FileZilla server
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.AccountSettings.Groups">
+            <summary>
+            All groups
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.AccountSettings.Users">
+            <summary>
+            All users
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.AccountSettings.#ctor">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.AccountSettings.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.AccountSettings.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Connection">
+            <summary>
+            Information about an active FTP connection to FileZilla
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Connection.Ip">
+            <summary>
+            Source IP of connection (IP of user)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Connection.Port">
+            <summary>
+            Source port of connection (IP of user)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Connection.UserName">
+            <summary>
+            Name of connected user
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Connection.DeserializeChildren(System.IO.BinaryReader,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Days">
+            <summary>
+            Flags enumeration representing the days of the week
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Monday">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Tuesday">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Wednesday">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Thursday">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Friday">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Saturday">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Sunday">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Workdays">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.Weekend">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.Days.All">
+            <summary/>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Group">
+            <summary>
+            Class representing a FileZilla group
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.GroupName">
+            <summary>
+            Group name. On Users, this is a reference to an existing group name
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.IpLimit">
+            <summary>
+            Connection limit per IP. 0=no limit
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.UserLimit">
+            <summary>
+            Connection limit per group/user. 0=no limit
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.BypassUserLimit">
+            <summary>
+            Bypass userlimit on server
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.Enabled">
+            <summary>
+            Is user/group enabled
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.DisallowedIPs">
+            <summary>
+            List of disallowed IP's (IP Filter)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.AllowedIPs">
+            <summary>
+            List of allowed IP's (IP Filter)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.EightPlusThree">
+            <summary>
+            Use 8+3 filenames? This property is'nt available in the admin interface.
+            Better leave it alone... Removed in later versions
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.SharedFolders">
+            <summary>
+            List of permissions
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.DownloadSpeedLimit">
+            <summary>
+            Download speed limit
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.UploadSpeedLimit">
+            <summary>
+            Upload speed limit
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.Comment">
+            <summary>
+            Comment for user/group
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.Group.ForceSsl">
+            <summary>
+            Force the use of SSL
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Group.#ctor">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Group.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Group.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.SpeedLimit">
+            <summary>
+            Object representing a download or upload speed limit
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimit.SpeedLimitType">
+            <summary>
+            OptionType of speed limit
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimit.BypassServerSpeedLimit">
+            <summary>
+            Does this limit bypasseses server limits.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimit.ConstantSpeedLimit">
+            <summary>
+            Constant speed limit in kB/s (requires SpeedLimitType.ConstantSpeedLimit to be operational)
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimit.SpeedLimitRules">
+            <summary>
+            List of speed limits (requires SpeedLimitType.UseSpeedLimitRules to be operational) 
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SpeedLimit.#ctor">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SpeedLimit.#ctor(System.Boolean)">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+            <param name="isGroup">True if owning object is a group (different defaults)</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SpeedLimit.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SpeedLimit.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.Authentication">
+            <summary>
+            Used during connect to FileZilla server.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Authentication.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.Authentication.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.SharedFolder">
+            <summary>
+            Class representing permissions to a shared folder
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SharedFolder.Directory">
+            <summary>
+            Directory path
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SharedFolder.Aliases">
+            <summary>
+            Optional aliases
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SharedFolder.AccessRights">
+            <summary>
+            Access rights in the directory
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SharedFolder.#ctor">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SharedFolder.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SharedFolder.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.AccessRights">
+            <summary>
+            FTP rights to files/folder
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.DirCreate">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.DirDelete">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.DirList">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.DirSubdirs">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.FileAppend">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.FileDelete">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.FileRead">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.FileWrite">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.IsHome">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.AccessRights.AutoCreate">
+            <summary/>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ServerState">
+            <summary>
+            FileZilla server state
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ServerState.Offline">
+            <summary>
+            Server is offline
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ServerState.Online">
+            <summary>
+            Server is online
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ServerState.GoOfflineNow">
+            <summary>
+            Go offline immediately
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ServerState.GoOfflineLogout">
+            <summary>
+            Go offline at logout?
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ServerState.GoOfflineWaitTransfer">
+            <summary>
+            Go offline after all transfers are done?
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.ServerState.Locked">
+            <summary>
+            Lock server
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.SpeedLimitRule">
+            <summary>
+            Class representing a FileZilla Speed limit rule
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimitRule.SpeedLimit">
+            <summary>
+            Speed limit in kB/s
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimitRule.Date">
+            <summary>
+            Speed limit active on date
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimitRule.FromTime">
+            <summary>
+            Speed limit active from time
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimitRule.ToTime">
+            <summary>
+            Speed limit active to time
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.SpeedLimitRule.Days">
+            <summary>
+            Speed limit active on weekdays
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SpeedLimitRule.#ctor">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SpeedLimitRule.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.SpeedLimitRule.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.SpeedLimitType">
+            <summary>
+            OptionType of speed limit
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.SpeedLimitType.Default">
+            <summary>
+            Use default/inherited. Not allowed anywhere in Group object graph.
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.SpeedLimitType.NoLimit">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.SpeedLimitType.ConstantSpeedLimit">
+            <summary/>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.SpeedLimitType.UseSpeedLimitRules">
+            <summary/>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.TriState">
+            <summary>
+            Enum representing a Tri-state checkbox
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TriState.No">
+            <summary>
+            Not set
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TriState.Yes">
+            <summary>
+            Set
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.TriState.Default">
+            <summary>
+            Use default/inherited value.
+            NOTE! Groups are not allowed to use this value anywhere in the object graph.
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.User">
+            <summary>
+            Class representing a FileZilla user
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.User.UserName">
+            <summary>
+            Name of user
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.User.Password">
+            <summary>
+            Hashed password of user. Use User.HashPassword to set value from cleartext
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.User.Salt">
+            <summary>
+            Salt used to hash password.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.User.#ctor">
+            <summary>
+            Default constructor (sets defaults as in FileZilla server interface)
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.User.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.User.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.User.AssignPassword(System.String,System.Int32)">
+            <summary>
+            Assign a new password to the user. If protocolVersion requires it, also generate a salt.
+            </summary>
+            <param name="password">New passwordinary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.User.HashPasswordSha512(System.String,System.String)">
+            <summary>
+            Compute a correctly formatted hashed password for use in User.Password.
+            </summary>
+            <param name="password"></param>
+            <param name="salt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.User.HashPasswordMd5(System.String)">
+            <summary>
+            Compute a correctly formatted hashed password for use in User.Password.
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.UserControl">
+            <summary>
+            "User" (actually connection) control.
+            Sub command of MessageType.UserControl 
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.UserControl.GetList">
+            <summary>
+            Get list of connections
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.UserControl.ConnOp">
+            <summary>
+            Connection operation. See ConnOp for sub types
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.UserControl.Kick">
+            <summary>
+            Kick user connection
+            </summary>
+        </member>
+        <member name="F:Miracle.FileZilla.Api.UserControl.BanIp">
+            <summary>
+            Ban user IP (and kick)
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.IBinarySerializable">
+            <summary>
+            Common interface used to serialize to/from FileZilla binary wire format
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IBinarySerializable.Deserialize(System.IO.BinaryReader,System.Int32,System.Int32)">
+            <summary>
+            Deserialise FileZilla binary data into object
+            </summary>
+            <param name="reader">Binary reader to read data from</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IBinarySerializable.Serialize(System.IO.BinaryWriter,System.Int32,System.Int32)">
+            <summary>
+            Serialise object into FileZilla binary data
+            </summary>
+            <param name="writer">Binary writer to write data to</param>
+            <param name="protocolVersion">Current FileZilla protocol version</param>
+            <param name="index">The 0 based index of this item in relation to any parent list</param>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.IFileZillaApi">
+            <summary>
+            FileZilla server API
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.Connect(System.String)">
+            <summary>
+            Connect to FileZilla admin console 
+            </summary>
+            <param name="password">FileZilla admin password</param>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.GetServerState">
+            <summary>
+            Get state of FileZilla server
+            </summary>
+            <returns>FileZilla server state</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.SetServerState(Miracle.FileZilla.Api.ServerState)">
+            <summary>
+            Set state of FileZilla server
+            </summary>
+            <param name="serverState">The new state</param>
+            <returns></returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.GetSettings">
+            <summary>
+            Get state of FileZilla server
+            </summary>
+            <returns>FileZilla server options</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.SetSettings(Miracle.FileZilla.Api.Settings)">
+            <summary>
+            Get state of FileZilla server
+            </summary>
+            <returns>True if Success</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.GetConnections">
+            <summary>
+            Get list af current connections to FileZilla server
+            </summary>
+            <returns>List of connections</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.Kick(System.Int32)">
+            <summary>
+            Kick a connection by id.
+            </summary>
+            <param name="connectionId">Connection Id (Use GetConnections to find ConnectionId)</param>
+            <returns>True if successfull, otherwise false</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.BanIp(System.Int32)">
+            <summary>
+            Kick a connection by id, and also ban IP address.
+            </summary>
+            <param name="connectionId">Connection Id (Use GetConnections to find ConnectionId)</param>
+            <returns>True if successfull, otherwise false</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.GetAccountSettings">
+            <summary>
+            Get account settings including all users and groups
+            </summary>
+            <returns>Account settings including all users and groups</returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.IFileZillaApi.SetAccountSettings(Miracle.FileZilla.Api.AccountSettings)">
+            <summary>
+            Set account settings. 
+            Note! This replaces ALL users and groups on FileZilla server.
+            </summary>
+            <returns>True if Success</returns>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.IFileZillaApi.ServerVersion">
+            <summary>
+            FileZilla Server version.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.IFileZillaApi.ProtocolVersion">
+            <summary>
+            FileZilla protocol version.
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.IFileZillaApi.IsConnected">
+            <summary>
+            Check if socket is connected
+            </summary>
+        </member>
+        <member name="P:Miracle.FileZilla.Api.IFileZillaApi.ReceiveMessageRetryCount">
+            <summary>
+            How many times to try to get a message of a particular type before giving up.
+            </summary>
+        </member>
+        <member name="T:Miracle.FileZilla.Api.ProtocolException">
+            <summary>
+            Exception thrown when a problem is detected in the FileZillaApi data protocol
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ProtocolException.#ctor">
+            <summary>
+            Creates a new Exception.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ProtocolException.#ctor(System.String)">
+            <summary>
+            Creates a new Exception.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ProtocolException.#ctor(System.String,System.Exception)">
+            <summary>
+            Creates a new Exception.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ProtocolException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Creates a new Exception.
+            </summary>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ProtocolException.Create``1(System.IO.BinaryReader,``0,``0)">
+            <summary>
+            Create expected/actual exception.
+            </summary>
+            <typeparam name="T">Generic type of expected/actual</typeparam>
+            <param name="reader">binary reader to get position from</param>
+            <param name="expected">expected value</param>
+            <param name="actual">actual value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Miracle.FileZilla.Api.ProtocolException.SizeOf``1">
+            <summary>
+            Get size of generic type in bytes
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

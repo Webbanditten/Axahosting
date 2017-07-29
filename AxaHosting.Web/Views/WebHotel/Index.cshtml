@@ -1,0 +1,48 @@
+﻿@model AxaHosting.Web.ViewModels.WebHotelViewModel
+
+@{
+    ViewBag.Title = "Viewing for " + Model.WebHotel.Domain;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="portlet light portlet-fit">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cube font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Details for @Model.WebHotel.Domain</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Domain Name </div>
+                    <div class="col-md-7 value">
+                        @Model.WebHotel.Domain
+                       
+                    </div>
+                </div>
+                <div class="row static-info">
+                    <div class="col-md-5 name">FTP Username </div>
+                    <div class="col-md-7 value">
+                        @Model.WebHotel.FtpUsername
+                       
+                    </div>
+                </div>
+                <div class="row static-info">
+                    <div class="col-md-5 name">FTP Password </div>
+                    <div class="col-md-7 value">
+                        @Model.WebHotel.FtpPassword
+                        <a href="@Url.Action("Edit", new {id = Model.WebHotel.Id})"><span class="label label-info label-sm"> Edit </span></a>
+                    </div>
+                </div>
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Created </div>
+                    <div class="col-md-7 value"> @Model.WebHotel.CreatedDate </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model AxaHosting.Web.ViewModels.WebhotelCancelViewModel
+
+
+@{
+    ViewBag.Title = "Cancel webhotel for " + Model.WebHotel.Domain;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light portlet-fit">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-user font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Cancel webhotel for  @Model.WebHotel.Domain</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+
+                @using (Html.BeginForm("Cancel", "WebHotel", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(m => m.WebHotelId)
+                       <input type="hidden" name="CancelWebhotel" value="true"/>
+                        <p>Are you sure you want to cancel your webhotel?</p>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Yes" class="btn btn-default"/><a href="@Url.Action("Cancel", "WebHotel", new { id = Model.WebHotel.Id, nope = true})" class="btn btn-default">NO GET ME OUT OF HERE</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+   
+</div>

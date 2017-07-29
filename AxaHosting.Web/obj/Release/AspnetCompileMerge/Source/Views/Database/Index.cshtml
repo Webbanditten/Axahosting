@@ -1,0 +1,71 @@
+﻿@using AxaHosting.Model
+@model AxaHosting.Web.ViewModels.DatabaseViewModel
+
+@{
+    ViewBag.Title = "Viewing for " + Model.Database.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="portlet light portlet-fit">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-cube font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Details for @Model.Database.Name</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Database Name </div>
+                    <div class="col-md-7 value">
+                        @Model.Database.Name
+
+                    </div>
+                </div>
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Database url </div>
+                    <div class="col-md-7 value">
+                        @Model.Database.Server.ExternalHostname.
+
+                    </div>
+                </div>
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Database Type </div>
+                    <div class="col-md-7 value">
+                        @{
+                            if (Model.Database.DatabaseType == DatabaseType.MsSql)
+                            {<text>Microsoft SQL</text>
+                            }else if (Model.Database.DatabaseType == DatabaseType.MySql)
+                            {<text>MySQL</text>
+                            }
+                        }
+
+                    </div>
+                </div>
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Database username</div>
+                    <div class="col-md-7 value">
+                        @Model.Database.Username
+
+
+                    </div>
+                </div>
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Database Password </div>
+                    <div class="col-md-7 value">
+                        @Model.Database.Password
+                        <a href="@Url.Action("Edit", new {id = Model.Database.Id})"><span class="label label-info label-sm"> Edit </span></a>
+                    </div>
+                </div>
+                
+                <div class="row static-info">
+                    <div class="col-md-5 name"> Created </div>
+                    <div class="col-md-7 value"> @Model.Database.CreatedDate </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</div>

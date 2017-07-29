@@ -1,0 +1,105 @@
+﻿@using System.Globalization
+@using AxaHosting.Model
+@model AxaHosting.Web.ViewModels.WebHotelOrderViewModel
+
+@{
+    ViewBag.Title = "Ordering of webhotel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="portlet light portlet-fit ">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-list font-blue"></i>
+            <span class="caption-subject font-blue bold uppercase">Ordering of webhotel</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        <div class="pricing-content-1">
+            <div class="row">
+                <div class="col-md-9">
+                    @using (Html.BeginForm("ConfirmOrder", "Product", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.DomainName, new {@class = "control-label col-md-4"})
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.DomainName, new {htmlAttributes = new {@class = "form-control"}})
+                                    @Html.ValidationMessageFor(model => model.DomainName)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Optional database product</label>
+                                <div class="col-md-8">
+                                    <select name="DatabaseProductId">
+                                        <option>No database</option>
+                                        @foreach (var d in Model.DatabaseProducts)
+                                        {
+                                            <option @if (Model.DatabaseProductId != null && Model.DatabaseProductId == d.Id)
+                                                    {<text>selected="selected"</text>} value="@d.Id">@d.Name - @d.MonthlyPricing.ToString(CultureInfo.GetCultureInfo("da-DK")) DKK Per Month</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <img src="~/Content/payment.png" />
+
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="ProductId" value="@Model.Product.Id" />
+                        <input type="submit" class="btn blue btn-outline uppercase btn-block bottom" value="Order">
+                    }
+
+
+                        </div>
+                <div class="col-md-3">
+                    <div class="price-column-container border-active">
+                        <div class="price-table-head bg-@Model.Product.Color">
+                            <h2 class="no-margin">@Model.Product.Name</h2>
+                        </div>
+                        <div class="arrow-down border-top-@Model.Product.Color"></div>
+                        <div class="price-table-pricing">
+                            <h3>
+                                @Model.Product.MonthlyPricing.ToString(CultureInfo.GetCultureInfo("da-DK"))
+                            </h3>
+                            <p>DKK per month</p>
+                        </div>
+                        <div class="price-table-content">
+
+                            <div class="row mobile-padding">
+                                <div class="col-xs-3 text-right mobile-padding">
+                                    <i class="fa fa-circle"></i>
+                                </div>
+                                <div class="col-xs-9 text-left mobile-padding">@Model.Product.GetServerTypeName()</div>
+                            </div>
+                            <div class="row mobile-padding">
+                                <div class="col-xs-3 text-right mobile-padding">
+                                    <i class="fa fa-dashboard"></i>
+                                </div>
+                                <div class="col-xs-9 text-left mobile-padding">@Model.Product.MaxCpu% CPU</div>
+                            </div>
+                            <div class="row mobile-padding">
+                                <div class="col-xs-3 text-right mobile-padding">
+                                    <i class="fa fa-envelope"></i>
+                                </div>
+                                <div class="col-xs-9 text-left mobile-padding">@Model.Product.MaxMailAccounts Mail Accounts</div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="~/Content/assets/pages/css/pricing.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL STYLES -->
+}

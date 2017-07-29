@@ -1,0 +1,13 @@
+﻿.page-header.navbar .page-logo .logo-default {
+    margin: 21px 0 0 !important;
+}
+
+li.login {
+    margin-top: 8px;
+}
+
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+
+}

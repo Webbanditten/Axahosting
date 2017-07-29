@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Welcome to AxaHosting";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-6">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light portlet-fit">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-circle-o font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Welcome to AxaHosting</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <p>AxaHosting is a high-available datacenter for the private and enteprise customer.</p>
+            </div>
+        </div>
+        <!-- END PORTLET-->
+    </div>
+    <div class="col-md-6">
+        <!-- BEGIN EUROPE PORTLET-->
+        <div class="portlet light portlet-fit ">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-pointer font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">AxaHosting Locations</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div id="world-map" class="vmaps"> </div>
+            </div>
+        </div>
+        <!-- END EUROPE PORTLET-->
+    </div>
+</div>
+
+@section styles {
+    <link href="/Content/jquery-jvectormap.css" rel="stylesheet" type="text/css" />
+}
+
+@section scripts{
+    <script src="/Scripts/jquery-jvectormap.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jVectorMaps/europe.js"></script>
+    <script>
+        $(function () {
+            $('#world-map').vectorMap({
+                map: 'europe_mill',
+
+                hoverOpacity: 0.7,
+                hoverColor: false,
+                markerStyle: {
+                    initial: {
+                        fill: '#F8E23B',
+                        stroke: '#383f47'
+                    }
+                },
+                regionStyle: {
+                    initial: {
+                        fill: '#3498db',
+                        "fill-opacity": 1,
+                        stroke: 'none',
+                        "stroke-width": 0,
+                        "stroke-opacity": 1
+                    },
+                    hover: {
+                        "fill-opacity": 1,
+                        cursor: 'pointer',
+                        fill: '#2c3e50'
+                    }
+                },
+                backgroundColor: '#ecf0f1',
+                markers: [
+                    { latLng: [55.49, 9.47], name: 'Kolding' },
+                    { latLng: [55.66, 12.34], name: 'Albertslund' },
+                    { latLng: [52.23, 21.01], name: 'Warsawa' },
+                    { latLng: [52.40, 16.92], name: 'Poznan' },
+                    { latLng: [51.50, -0.12], name: 'London' },
+                    { latLng: [52.48, -1.89], name: 'Birmingham' },
+                    { latLng: [48.85, 2.35], name: 'Paris' },
+                    { latLng: [43.60, 1.44], name: 'Toulouse' },
+                    { latLng: [40.41, -3.72], name: 'Madrid' },
+                    { latLng: [37.37, -6.02], name: 'Sevilla' },
+                    { latLng: [41.90, 12.49], name: 'Rom' },
+                    { latLng: [45.40, 11.82], name: 'Padova ' },
+                    { latLng: [52.49, 13.43], name: 'Berlin' },
+                    { latLng: [53.54, 9.98], name: 'Hamborg' },
+
+
+
+                ],
+                focusOn: {
+                    x: 0.55,
+                    y: 0.60,
+                    scale: 2
+                }
+            });
+        });
+    </script>
+}
